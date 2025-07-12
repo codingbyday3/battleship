@@ -10,6 +10,7 @@ function createShip(length){
     return hitNum === length
 
   }
+
   return{
     length,
     hitNum,
@@ -18,5 +19,4 @@ function createShip(length){
     isSunk
   }
 }
-
-export {createShip}
+module.exports = createShip
