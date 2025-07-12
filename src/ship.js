@@ -5,11 +5,17 @@ function createShip(length){
   function hit(){
     hitNum++
   }
+
+  function isSunk(){
+    return hitNum === length
+
+  }
   return{
     length,
     hitNum,
     isFloating:true,
     hit,
+    isSunk
   }
 }
 
