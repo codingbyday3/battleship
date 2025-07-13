@@ -19,4 +19,6 @@ function createShip(length){
     isSunk
   }
 }
+
 module.exports = createShip
+
