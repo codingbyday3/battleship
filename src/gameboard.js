@@ -15,20 +15,35 @@ function createGameboard(){
     return gameboard
   }
 
+  function setShipsLength(){
+    const ships = []
+    let size = 1
+    for(let i = 4; i > 0; i--){
+      for(let j = i; j > 0; j--){
+        const ship = createShip(size)
+        ships.push(ship)
+      }
+      size++
+    }
+    return ships
+  }
+
+
   function placeShips(){
 
-    function generateShips(){
-      const ships = []
-      let size = 1
-      for(let i = 4; i > 0; i--){
-        for(let j = i; j > 0; j--){
-          const ship = createShip(size)
-          ships.push(ship)
-        }
-        size++
+    const shipsLength = setShipsLength()
+    const board = buildGameFields()
+
+    function placeShipAt(row, col, length, horizontal){
+      const horizontal = direction === "horizontal"
+      for(let i = 0; i < length; i++){
+        const r = row + (horizontal ? 0 : i)
+        const c = col + (horizontal ? i : 0)
+        board[r][c] = 1
       }
-      return ships
     }
+
+
   }
 
   return {
