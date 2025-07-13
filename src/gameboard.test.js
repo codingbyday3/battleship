@@ -3,7 +3,9 @@ const createShip = require("./ship");
 
 
 test("gameboard is not correctly generated", ()=>{
-  expect(createGameboard().buildGameFields()).toEqual([
+  const gameboard = createGameboard()
+  gameboard.buildGameFields()
+  expect(gameboard.gameboard).toEqual([
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -18,7 +20,10 @@ test("gameboard is not correctly generated", ()=>{
 })
 
 test("ships are not correctly displaying", ()=>{
-  expect(createGameboard().placeShips()).toEqual([
+  const gameboard = createGameboard()
+  gameboard.buildGameFields()
+  gameboard.placeShips()
+  expect(gameboard.gameboard).toEqual([
     [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
     [0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
@@ -34,5 +39,8 @@ test("ships are not correctly displaying", ()=>{
 })
 
 test("Attack is not working correctly", ()=>{
-  expect(createGameboard().receiveAttack(0, 8)).toBe(0)
+  const gameboard = createGameboard()
+  gameboard.buildGameFields()
+  gameboard.placeShips()
+  expect(gameboard.receiveAttack(1, 4)).toBe(1)
 })
