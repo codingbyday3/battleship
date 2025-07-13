@@ -18,7 +18,7 @@ test("gameboard is not correctly generated", ()=>{
 })
 
 test("ships are not correctly displaying", ()=>{
-  expect(createGameboard().buildGameFields()).toEqual([
+  expect(createGameboard().placeShips()).toEqual([
     [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
     [0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
