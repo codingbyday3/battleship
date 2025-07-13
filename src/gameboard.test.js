@@ -32,3 +32,7 @@ test("ships are not correctly displaying", ()=>{
   ])
 
 })
+
+test("Attack is not working correctly", ()=>{
+  expect(createGameboard().receiveAttack(0, 8)).toBe(0)
+})
