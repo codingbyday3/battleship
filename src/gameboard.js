@@ -15,34 +15,37 @@ function createGameboard(){
     return gameboard
   }
 
-  function setShipsLength(){
-    const ships = []
-    let size = 1
-    for(let i = 4; i > 0; i--){
-      for(let j = i; j > 0; j--){
-        const ship = createShip(size)
-        ships.push(ship)
-      }
-      size++
-    }
-    return ships
-  }
-
 
   function placeShips(){
 
-    const shipsLength = setShipsLength()
+    const shipsLength = [
+      { row: 0, col: 8, length: 2, horizontal: "horizontal" },
+      { row: 1, col: 1, length: 4, horizontal: "horizontal" },
+      { row: 2, col: 8, length: 1, horizontal: "horizontal" },
+      { row: 3, col: 0, length: 2, horizontal: "vertical" },
+      { row: 3, col: 4, length: 2, horizontal: "horizontal" },
+      { row: 5, col: 6, length: 1, horizontal: "horizontal" },
+      { row: 6, col: 3, length: 1, horizontal: "horizontal" },
+      { row: 7, col: 1, length: 3, horizontal: "vertical" },
+      { row: 8, col: 3, length: 3, horizontal: "horizontal" },
+      { row: 8, col: 9, length: 1, horizontal: "horizontal" }
+    ];
     const board = buildGameFields()
 
-    function placeShipAt(row, col, length, horizontal){
-      const horizontal = direction === "horizontal"
+    function placeShipAt(row, col, length, direction){
+      const isHorizontal = direction === "horizontal"
       for(let i = 0; i < length; i++){
-        const r = row + (horizontal ? 0 : i)
-        const c = col + (horizontal ? i : 0)
+        const r = row + (isHorizontal ? 0 : i)
+        const c = col + (isHorizontal ? i : 0)
         board[r][c] = 1
       }
     }
 
+    for(let ship of shipsLength){
+      placeShipAt(ship.row, ship.col, ship.length, ship.horizontal)
+    }
+
+    return board
 
   }
 
