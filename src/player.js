@@ -17,3 +17,5 @@ function createPlayer(){
     comuterPlayer
   }
 }
+
+module.exports = createPlayer 
