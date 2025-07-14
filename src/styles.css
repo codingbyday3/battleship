@@ -70,5 +70,20 @@ main{
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+
   color: var(--blue-900);
+}
+
+main div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.playing-board{
+  border: 1px solid var(--blue-900);
+  height: 500px;
+  width: 500px;
+
 }
