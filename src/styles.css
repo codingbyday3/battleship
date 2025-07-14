@@ -1,3 +1,21 @@
+:root{
+
+  /* colors */
+  --blue-100: #A9D6E5;
+  --blue-200: #89C2D9;
+  --blue-300: #468FAF;
+  --blue-400: #2C7DA0;
+  --blue-500: #2A6F97;
+  --blue-600: #014F86;
+  --blue-700: #01497C;
+  --blue-800: #013A63;
+  --blue-900: #012A4A;
+
+  /* font-familys */
+  --ff-roboto:"Roboto", sans-serif;
+  --ff-space-grotesk:"Space Grotesk", sans-serif
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
