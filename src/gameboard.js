@@ -1,19 +1,19 @@
-const { createShip } = require("./ship");
+const createShip  = require("./ship");
 
 function createGameboard(){
 
   let gameboard = []
-  const shipsLength = [
-    { row: 0, col: 8, length: 2, horizontal: "horizontal" },
-    { row: 1, col: 1, length: 4, horizontal: "horizontal" },
-    { row: 2, col: 8, length: 1, horizontal: "horizontal" },
-    { row: 3, col: 0, length: 2, horizontal: "vertical" },
-    { row: 3, col: 4, length: 2, horizontal: "horizontal" },
-    { row: 5, col: 6, length: 1, horizontal: "horizontal" },
-    { row: 6, col: 3, length: 1, horizontal: "horizontal" },
-    { row: 7, col: 1, length: 3, horizontal: "vertical" },
-    { row: 8, col: 3, length: 3, horizontal: "horizontal" },
-    { row: 8, col: 9, length: 1, horizontal: "horizontal" }
+  const ships = [
+    createShip(0, 8, 2, "horizontal"),
+    createShip(1, 1, 4, "horizontal"),
+    createShip(2,8, 1, "horizontal"),
+    createShip(3, 0, 2, "vertical"),
+    createShip(3, 4, 2, "horizontal"),
+    createShip(5, 6, 1, "horizontal"),
+    createShip(6, 3, 1, "horizontal"),
+    createShip(7, 1, 3, "vertical"),
+    createShip(8, 3, 3, "horizontal"),
+    createShip(8, 9, 1, "horizontal")
   ];
   
   function buildGameFields(){
@@ -26,9 +26,8 @@ function createGameboard(){
     }
   }
 
-
   function placeShips(){
-
+    buildGameFields()
     function placeShipAt(row, col, length, direction){
       const isHorizontal = direction === "horizontal"
       for(let i = 0; i < length; i++){
@@ -38,8 +37,8 @@ function createGameboard(){
       }
     }
 
-    for(let ship of shipsLength){
-      placeShipAt(ship.row, ship.col, ship.length, ship.horizontal)
+    for(let ship of ships){
+      placeShipAt(ship.row, ship.col, ship.length, ship.direction)
     }
 
   }
@@ -65,8 +64,8 @@ function createGameboard(){
       c--;
     }
 
-    for(let i = 0; i < shipsLength.length; i ++){
-      if(shipsLength[i].row === r && shipsLength[i].col === c){
+    for(let i = 0; i < ships.length; i ++){
+      if(ships[i].row === r && ships[i].col === c){
         return i
       }
     }
@@ -74,7 +73,6 @@ function createGameboard(){
 
   return {
     gameboard,
-    buildGameFields,
     placeShips,
     receiveAttack
   }

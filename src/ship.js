@@ -1,4 +1,4 @@
-function createShip(length){
+function createShip(row, col, length, direction){
 
   let hitNum = 0
 
@@ -12,7 +12,10 @@ function createShip(length){
   }
 
   return{
+    row,
+    col,
     length,
+    direction,
     hitNum,
     isFloating:true,
     hit,
