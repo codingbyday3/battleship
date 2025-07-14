@@ -8,6 +8,13 @@ function renderGame(){
     const playerBoard = document.querySelector(".player-board")
     const enemyBoard = document.querySelector(".enemy-board")
 
+    // for(let i = 0; i < player.gameboard.length; i++){
+    //   for(let j = 0; j < player.gameboard[i].length; j++){
+    //     if(player.gameboard[i][j] !== 0){
+
+    //     }
+    //   }
+    // }
 
   }
 

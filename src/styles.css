@@ -74,7 +74,8 @@ main{
   color: var(--blue-900);
 }
 
-main div{
+.left-container,
+.right-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,8 +84,17 @@ main div{
 
 .player-board,
 .enemy-board{
-  border: 1px solid var(--blue-900);
+
   height: 25vw;
   width: 25vw;
+  display: flex;
 
+}
+
+.player-board div,
+.enemy-board div{
+  background-color: var(--blue-600);
+  border: 1px solid var(--blue-100);
+  width: calc(100% / 10);
+  height: calc((100%/ 10));
 }
