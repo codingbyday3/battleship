@@ -48,8 +48,9 @@ function createGameboard(){
 
     if(gameboard[row][col] !== 0){
       const shipNum = gameboard[row][col]
+      ships[shipNum - 1].hit()
       gameboard[row][col] = "O"
-      return shipNum
+
     }else{
       gameboard[row][col] = "X"
       missedAttacks.push({row, col})
@@ -57,10 +58,24 @@ function createGameboard(){
     }
   }
 
+  function checkForEnd(){
+    let sunkNum = 0
+    for(let ship of ships){
+      if(ship.isSunk()){
+        sunkNum++
+      }
+    }
+
+    if(sunkNum === 10){
+      return "Victory, you sunk all the ships!"
+    }
+  }
+
   return {
     gameboard,
     placeShips,
-    receiveAttack
+    receiveAttack,
+    checkForEnd
   }
 }
 

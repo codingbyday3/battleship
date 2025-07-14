@@ -20,15 +20,10 @@ test("ships are not correctly displaying", ()=>{
 
 })
 
-test("Attack is not working correctly", ()=>{
-  const gameboard = createGameboard()
-
-  gameboard.placeShips()
-  expect(gameboard.receiveAttack(1, 4)).toBe(2)
-})
 
 test("All ships should be sunk?", ()=>{
   const gameboard = createGameboard()
+  gameboard.placeShips()
 
   gameboard.receiveAttack(0, 8)
   gameboard.receiveAttack(0, 9)
@@ -49,6 +44,7 @@ test("All ships should be sunk?", ()=>{
   gameboard.receiveAttack(8, 3)
   gameboard.receiveAttack(8, 4)
   gameboard.receiveAttack(8, 5)
+  gameboard.receiveAttack(8, 9)
 
-  expect(gameboard.gameboard.receiveAttack(8, 9)).toBe("Victory, you sunk all the ships!")
+  expect(gameboard.checkForEnd()).toBe("Victory, you sunk all the ships!")
 })
