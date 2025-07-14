@@ -100,5 +100,4 @@ main{
 
 .ship{
   background-color: var(--blue-900);
-  border: 1px solid var(--blue-100);
 }
