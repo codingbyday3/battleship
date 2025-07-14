@@ -65,3 +65,10 @@ header{
   color: var(--white);
   background-color: var(--blue-200);
 }
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  color: var(--blue-900);
+}
