@@ -28,46 +28,30 @@ function createGameboard(){
 
   function placeShips(){
     buildGameFields()
-    function placeShipAt(row, col, length, direction){
+    function placeShipAt(row, col, length, direction, id){
       const isHorizontal = direction === "horizontal"
       for(let i = 0; i < length; i++){
         const r = row + (isHorizontal ? 0 : i)
         const c = col + (isHorizontal ? i : 0)
-        gameboard[r][c] = 1
+        gameboard[r][c] = id
       }
     }
 
-    for(let ship of ships){
-      placeShipAt(ship.row, ship.col, ship.length, ship.direction)
+    for(let i = 0; i < ships.length; i++){
+      placeShipAt(ships[i].row, ships[i].col, ships[i].length, ships[i].direction, i+1)
     }
 
   }
 
   function receiveAttack(row, col){
 
-    if(gameboard[row][col] === 1){
+    if(gameboard[row][col] !== 0){
+      const shipNum = gameboard[row][col]
       gameboard[row][col] = "O"
-      return findHitedShip(row, col)
+      return shipNum
     }else{
       gameboard[row][col] = "X"
       return "miss"
-    }
-  }
-
-  function findHitedShip(row, col){
-    let r = row
-    let c = col
-    while (r > 0 && (gameboard[r - 1][c] === 1 || gameboard[r - 1][c] === "O")) {
-      r--;
-    }
-    while (c > 0 && (gameboard[r][c - 1] === 1 || gameboard[r][c - 1] === "O")) {
-      c--;
-    }
-
-    for(let i = 0; i < ships.length; i ++){
-      if(ships[i].row === r && ships[i].col === c){
-        return i
-      }
     }
   }
 
