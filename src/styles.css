@@ -87,14 +87,18 @@ main{
 
   height: 25vw;
   width: 25vw;
-  display: flex;
+  display: grid;
+  grid-template-rows: repeat(10, calc(100% / 10));
+  grid-template-columns: repeat(10, calc(100% / 10));
 
 }
 
-.player-board div,
-.enemy-board div{
-  background-color: var(--blue-600);
+.no-ship{
+  background-color: var(--blue-500);
   border: 1px solid var(--blue-100);
-  width: calc(100% / 10);
-  height: calc((100%/ 10));
+}
+
+.ship{
+  background-color: var(--blue-900);
+  border: 1px solid var(--blue-100);
 }

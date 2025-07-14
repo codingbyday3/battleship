@@ -8,14 +8,26 @@ function renderGame(){
     const playerBoard = document.querySelector(".player-board")
     const enemyBoard = document.querySelector(".enemy-board")
 
-    // for(let i = 0; i < player.gameboard.length; i++){
-    //   for(let j = 0; j < player.gameboard[i].length; j++){
-    //     if(player.gameboard[i][j] !== 0){
+    function renderCorrectField(board, placeToRender){
+      for(let i = 0; i < board.length; i++){
+        for(let j = 0; j < board[i].length; j++){
+          const div = document.createElement("div")
+          if(board[i][j] !== 0){
+            div.className = "ship"
 
-    //     }
-    //   }
-    // }
+          }else{
+            div.className = "no-ship"
+          }
 
+          placeToRender.appendChild(div)
+          
+          
+        }
+      }
+    }
+
+    renderCorrectField(player.gameboard, playerBoard)
+    renderCorrectField(comuterPlayer.gameboard, enemyBoard)
   }
 
 
