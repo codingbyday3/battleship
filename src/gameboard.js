@@ -15,6 +15,7 @@ function createGameboard(){
     createShip(8, 3, 3, "horizontal"),
     createShip(8, 9, 1, "horizontal")
   ];
+  const missedAttacks = []
   
   function buildGameFields(){
 
@@ -51,6 +52,7 @@ function createGameboard(){
       return shipNum
     }else{
       gameboard[row][col] = "X"
+      missedAttacks.push({row, col})
       return "miss"
     }
   }
